@@ -235,7 +235,4 @@ test('screenshots of a synthetic and a human sample clip, desktop and phone', as
     await expect(page.locator('#status')).toHaveText('Done', { timeout: 60000 });
     await app.screenshot({ path: path.join(DOCS, shot) });
   }
-
-  await page.setViewportSize({ width: 390, height: 900 });
-  await app.screenshot({ path: path.join(DOCS, '06-phone.png') });
 });

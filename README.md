@@ -119,18 +119,12 @@ All from `E2E_LIVE=1 npm run test:e2e`, using a fake microphone that plays `fixt
 | - | - |
 | ![Done](docs/03-done.png) | ![Human sample clip](docs/05-sample-human.png) |
 
-On a phone the strip wraps to two columns:
-
-<p align="center">
-  <img src="docs/06-phone.png" alt="Phone width layout" width="30%">
-</p>
-
 ## Links
 
-- [Velma docs](https://docs.modulate.ai?utm_source=github&utm_medium=repo&utm_campaign=infrasity_m1_repo4)
-- [Speech-to-text streaming](https://docs.modulate.ai/api-reference/stt/streaming?utm_source=github&utm_medium=repo&utm_campaign=infrasity_m1_repo4) and [deepfake detection streaming](https://docs.modulate.ai/api-reference/svd/streaming?utm_source=github&utm_medium=repo&utm_campaign=infrasity_m1_repo4)
-- [Authentication and rate limits](https://docs.modulate.ai/guides/authentication?utm_source=github&utm_medium=repo&utm_campaign=infrasity_m1_repo4)
+- [Velma docs](https://docs.modulate.ai?utm_source=github&utm_medium=repo)
+- [Speech-to-text streaming](https://docs.modulate.ai/api-reference/stt/streaming?utm_source=github&utm_medium=repo) and [deepfake detection streaming](https://docs.modulate.ai/api-reference/svd/streaming?utm_source=github&utm_medium=repo)
+- [Authentication and rate limits](https://docs.modulate.ai/guides/authentication?utm_source=github&utm_medium=repo)
 
 ## Licence
 
-MIT. See `LICENSE`. Modulate owns the Velma API and its trademarks. This example is an independent sample prepared by Infrasity for Modulate. Test clips are described in `fixtures/SOURCES.md`.
+MIT. See `LICENSE`. Modulate owns the Velma API and its trademarks. This example is an independent sample. Test clips are described in `fixtures/SOURCES.md`.

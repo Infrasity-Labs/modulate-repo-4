@@ -1,0 +1,7 @@
+node_modules/
+.env
+NOTES.md
+test-results/
+playwright-report/
+.DS_Store
+fixtures/_local/

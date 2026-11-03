@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Live transcript and synthetic voice check from your microphone, using Velma streaming." />
+    <title>Velma streaming demo</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233342c4'/%3E%3Cpath d='M7 16h2v0M11 11v10M16 7v18M21 11v10M25 14v4' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page" id="app">
+      <header class="card header">
+        <h1>Velma streaming demo</h1>
+        <p class="lead">
+          Talk into your microphone and watch a live transcript and a synthetic voice check
+          update as you speak.
+        </p>
+
+        <div class="controls">
+          <button type="button" id="toggle" class="button button--primary">Start</button>
+          <div class="status-group">
+            <p id="status" class="status" aria-live="polite" data-state="idle">Ready</p>
+            <p id="timer" class="timer" aria-label="Elapsed time">0:00</p>
+          </div>
+        </div>
+        <div class="meter" aria-hidden="true"><div id="meter-fill" class="meter__fill"></div></div>
+
+        <div class="sample">
+          <label for="sample-select">No microphone? Try a sample clip</label>
+          <div class="sample__row">
+            <select id="sample-select">
+              <option value="synthetic-1.wav">Synthetic voice, clip 1</option>
+              <option value="synthetic-2.wav">Synthetic voice, clip 2</option>
+              <option value="real-1.wav">Human voice, clip 1</option>
+              <option value="real-2.wav">Human voice, clip 2</option>
+            </select>
+            <button type="button" id="sample-button" class="button">Play a sample clip</button>
+          </div>
+        </div>
+
+        <div id="error" class="error" role="alert" hidden>
+          <p id="error-text"></p>
+          <button type="button" id="retry" class="button">Try again</button>
+        </div>
+      </header>
+
+      <section class="card" aria-labelledby="transcript-title">
+        <div class="card__head">
+          <h2 id="transcript-title">Transcript</h2>
+          <button type="button" id="jump" class="link-button" hidden>Jump to latest</button>
+        </div>
+        <div id="transcript" class="transcript" tabindex="0" aria-live="polite" aria-relevant="additions text">
+          <p id="transcript-empty" class="placeholder">Words will appear here as you speak</p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="strip-title">
+        <h2 id="strip-title">Authenticity</h2>
+        <p id="summary" class="summary" aria-live="polite">Waiting for the first result</p>
+        <ul class="legend" aria-label="How to read the blocks">
+          <li><span class="swatch swatch--synthetic"></span>synthetic</li>
+          <li><span class="swatch swatch--non-synthetic"></span>non-synthetic</li>
+          <li><span class="swatch swatch--no-content"></span>no-content (silence)</li>
+        </ul>
+        <ol id="strip" class="strip" aria-label="Authenticity result for each analysis window"></ol>
+        <ul id="frame-list" class="frame-list" tabindex="0" aria-label="Frame details"></ul>
+        <p class="note">
+          Each block is an analysis window of up to 4 seconds. Windows overlap and a new one
+          arrives about every second. This is a probability signal, not proof. Confidence shows
+          how sure the model is about the label it gave a window.
+        </p>
+      </section>
+
+      <footer class="footer">
+        Built on the <a href="https://docs.modulate.ai">Velma API</a> from Modulate. Your audio
+        is sent to Velma through this server. This demo does not store it. Velma's own terms apply.
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
